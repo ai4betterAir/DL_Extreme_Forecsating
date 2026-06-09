@@ -1,0 +1,120 @@
+# Sparse LSTM Configuration with TemporalMICE and VMD Decomposition
+# Region: selected dynamically from DPE_region_stations.py
+# Variable: O3
+# Forecast Horizon: 6 hours
+
+config_file: "config.py"
+
+additional_var_to_select:
+  - "O3, TEMP"
+
+internal_var_to_add:
+  - "hour"
+  - "month"
+  - "day_of_week"
+
+# Shared Data Folder
+#shared_data_dir: "AI_Runs/Forecast/SLSYD/Ozone/Sparse_LSTM_v1/shared_data"
+
+# Model Configuration
+model_parameters:
+  n_inputs: 12
+  n_outputs: 6
+  #n_steps_in: 12
+  #n_steps_out: 3
+  
+  # Sparse LSTM specific parameters
+  sparse_lstm_num_heads: 4
+  sparse_lstm_window_size: 6
+  sparse_lstm_ff_dim: 256
+  sparse_lstm_dropout: 0.1
+  sparse_lstm_d_model: 64
+
+# Training Parameters
+run_parameters:
+  n_epoch: 25
+  batchsize: 32
+  num_batches: 10
+save_model: true
+use_file: true
+impute: false
+decompose: false
+
+# TemporalMICE Imputation Configuration
+IMPUTATION_METHOD: "MAIN"
+save_imputed_data: true
+temporal_n_imputations: 1
+temporal_max_iter: 10
+temporal_lags: [1, 2, 3, 24]
+temporal_leads: [1, 2]
+temporal_random_state: 42
+temporal_refinement_iterations: 2
+
+# VMD Decomposition Configuration
+use_vmd_decomposition: true
+save_vmd_data: true
+vmd_n_imfs: 20
+vmd_alpha: 2000
+vmd_tau: 0.0
+vmd_DC: 0
+vmd_init: 1
+vmd_tol: 1e-7
+vmd_output_dir: "./outputs/vmd"
+
+# Evaluation Metrics
+evaluation_metrics:
+  - "MAE"
+  - "RMSE"
+  - "R2"
+  - "Pearson"
+  - "IOA"
+
+n_iteration: 1
+prob_samples: 100
+
+# ==================================================================================
+# SPARSE_LSTM VMD ENSEMBLE INFERENCE PARAMETERS
+# ==================================================================================
+
+# Model Management
+model_base_path: "AI_Runs/Model_weights"
+model_version: "v1.0"
+
+# Model Validation
+strict_version_check: false  # Set to true to fail on version mismatch
+
+# Sequence Parameters (MUST match training configuration)
+time_steps: 12
+lags: 6
+
+# Output Configuration
+output_format: "per_station"  # Separate DataFrame per station
+include_metadata: true  # Add version and timestamp to outputs
+
+# Performance
+enable_model_caching: true  # Keep models in memory between runs
+
+# Logging
+log_level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR
+
+# ==================================================================================
+# SPARSE TRANSFORMER PARAMETERS (Optional - for training only)
+# ==================================================================================
+# These are not used for inference-only workflow but kept for compatibility
+
+sparse_lstm_num_heads: 4
+sparse_lstm_window_size: 6
+sparse_lstm_ff_dim: 256
+sparse_lstm_d_model: 64
+sparse_lstm_units: 100
+sparse_lstm_cnn_filters: 64
+sparse_lstm_cnn_kernel_size: 3
+sparse_lstm_dropout: 0.1
+
+# ==================================================================================
+# TRAINING PARAMETERS (Not used for inference-only)
+# ==================================================================================
+n_epoch: 10
+batchsize: 32
+verbose: 1
+optimizer: "adam"

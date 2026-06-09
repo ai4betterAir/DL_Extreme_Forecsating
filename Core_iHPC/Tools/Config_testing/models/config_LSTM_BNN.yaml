@@ -1,0 +1,4 @@
+
+forecast_method: 
+   - "LSTM_BNN_model_v1"      ### Good for 24h-forecast
+   # - "LSTM_BNN_model_v2"    ### Good for 48h-forecast, maybe 72h with calibration

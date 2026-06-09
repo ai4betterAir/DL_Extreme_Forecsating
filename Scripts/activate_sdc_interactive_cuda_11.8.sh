@@ -1,0 +1,1 @@
+/mnt/appsource/local/CAS/software/anaconda3/Environments/deep_learning_tensorflow_gpu_cuda_11.8/init_scripts/activate_sdc_interactive.sh

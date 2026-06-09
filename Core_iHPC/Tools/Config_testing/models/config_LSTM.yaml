@@ -1,0 +1,2 @@
+forecast_method: 
+   - "LSTM_BNN_single_station_v1"

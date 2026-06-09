@@ -1,0 +1,641 @@
+{
+  "Regions": [
+    {
+      "Region": "Cadia Monitoring",
+      "Sites": "MILLTHORPE",
+      "CommonVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "Central Coast",
+      "Sites": "WYONG",
+      "CommonVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "Central Tablelands",
+      "Sites": "BATHURST, ORANGE",
+      "CommonVariables": "HUMID, OZONE, PM10, PM2.5, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "Illawarra",
+      "Sites": "ALBION PARK SOUTH, KEMBLA GRANGE, WOLLONGONG",
+      "CommonVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "Lake Macquarie",
+      "Sites": "MORISSET",
+      "CommonVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "Lower Hunter",
+      "Sites": "BERESFIELD, NEWCASTLE, WALLSEND",
+      "CommonVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "Mid-North Coast",
+      "Sites": "COFFS HARBOUR, PORT MACQUARIE",
+      "CommonVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "Newcastle Local",
+      "Sites": "CARRINGTON, MAYFIELD, STOCKTON",
+      "CommonVariables": "HUMID, NO, NO2, NOX, PM10, PM2.5, RAIN, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "North-west Slopes",
+      "Sites": "GUNNEDAH, NARRABRI, TAMWORTH",
+      "CommonVariables": "HUMID, PM10, PM2.5, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "Northern Tablelands",
+      "Sites": "ARMIDALE",
+      "CommonVariables": "HUMID, NEPH, PM10, PM2.5, RAIN, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "Research Monitoring",
+      "Sites": "CAMMERAY",
+      "CommonVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "Roadside Monitoring",
+      "Sites": "BRADFIELD HIGHWAY",
+      "CommonVariables": "CO, HUMID, NO, NO2, NOX, OZONE, PM10, PM2.5, TEMP"
+    },
+    {
+      "Region": "South-west Slopes",
+      "Sites": "ALBURY, WAGGA WAGGA NORTH",
+      "CommonVariables": "HUMID, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "Southern Tablelands",
+      "Sites": "GOULBURN",
+      "CommonVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "Sydney East",
+      "Sites": "ALEXANDRIA, COOK AND PHILLIP, EARLWOOD, LIDCOMBE, MACQUARIE PARK, RANDWICK, ROZELLE, ULTIMO-UTS",
+      "CommonVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "Sydney North-west",
+      "Sites": "PARRAMATTA NORTH, PENRITH, PROSPECT, RICHMOND, ROUSE HILL, ST MARYS",
+      "CommonVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "Sydney South-west",
+      "Sites": "BARGO, BRINGELLY, CAMDEN, CAMPBELLTOWN WEST, LIVERPOOL, OAKDALE",
+      "CommonVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, TEMP, WDR, WSP"
+    },
+    {
+      "Region": "Upper Hunter",
+      "Sites": "ABERDEEN, BULGA, CAMBERWELL, JERRYS PLAINS, MAISON DIEU, MERRIWA, MOUNT THORLEY, MUSWELLBROOK, MUSWELLBROOK NW, SINGLETON, SINGLETON NW, SINGLETON SOUTH, WARKWORTH, WYBONG",
+      "CommonVariables": "HUMID, PM10, TEMP, WDR, WSP"
+    },
+    {
+      "Region": null,
+      "Sites": "",
+      "CommonVariables": "CO, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5"
+    }
+  ],
+  "Sites": [
+    {
+      "Region": "Cadia Monitoring",
+      "Site_Id": "798",
+      "SiteName": "MILLTHORPE",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, TEMP, WDR, WSP",
+      "StartDateTime": "2023-07-24 17:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2023-07-24 17:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Central Coast",
+      "Site_Id": "259",
+      "SiteName": "WYONG",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Central Tablelands",
+      "Site_Id": "795",
+      "SiteName": "BATHURST",
+      "AvailableVariables": "HUMID, OZONE, PM10, PM2.5, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Central Tablelands",
+      "Site_Id": "1800",
+      "SiteName": "ORANGE",
+      "AvailableVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Illawarra",
+      "Site_Id": "2921",
+      "SiteName": "ALBION PARK SOUTH",
+      "AvailableVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Illawarra",
+      "Site_Id": "526",
+      "SiteName": "KEMBLA GRANGE",
+      "AvailableVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, SOLAR, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Illawarra",
+      "Site_Id": "500",
+      "SiteName": "WOLLONGONG",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 12:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 12:00"
+    },
+    {
+      "Region": "Lake Macquarie",
+      "Site_Id": "264",
+      "SiteName": "MORISSET",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Lower Hunter",
+      "Site_Id": "322",
+      "SiteName": "BERESFIELD",
+      "AvailableVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Lower Hunter",
+      "Site_Id": "300",
+      "SiteName": "NEWCASTLE",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Lower Hunter",
+      "Site_Id": "287",
+      "SiteName": "WALLSEND",
+      "AvailableVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, SOLAR, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Mid-North Coast",
+      "Site_Id": "450",
+      "SiteName": "COFFS HARBOUR",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Mid-North Coast",
+      "Site_Id": "803",
+      "SiteName": "PORT MACQUARIE",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Newcastle Local",
+      "Site_Id": "294",
+      "SiteName": "CARRINGTON",
+      "AvailableVariables": "HUMID, NO, NO2, NOX, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Newcastle Local",
+      "Site_Id": "304",
+      "SiteName": "MAYFIELD",
+      "AvailableVariables": "HUMID, NO, NO2, NOX, PM10, PM2.5, RAIN, SOLAR, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Newcastle Local",
+      "Site_Id": "295",
+      "SiteName": "STOCKTON",
+      "AvailableVariables": "HUMID, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "North-west Slopes",
+      "Site_Id": "380",
+      "SiteName": "GUNNEDAH",
+      "AvailableVariables": "HUMID, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "North-west Slopes",
+      "Site_Id": "390",
+      "SiteName": "NARRABRI",
+      "AvailableVariables": "HUMID, PM10, PM2.5, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "North-west Slopes",
+      "Site_Id": "340",
+      "SiteName": "TAMWORTH",
+      "AvailableVariables": "HUMID, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Northern Tablelands",
+      "Site_Id": "1350",
+      "SiteName": "ARMIDALE",
+      "AvailableVariables": "HUMID, NEPH, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Research Monitoring",
+      "Site_Id": "62",
+      "SiteName": "CAMMERAY",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2022-04-28 12:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2022-04-28 12:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Roadside Monitoring",
+      "Site_Id": "61",
+      "SiteName": "BRADFIELD HIGHWAY",
+      "AvailableVariables": "CO, HUMID, NO, NO2, NOX, OZONE, PM10, PM2.5, TEMP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "South-west Slopes",
+      "Site_Id": "640",
+      "SiteName": "ALBURY",
+      "AvailableVariables": "HUMID, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "South-west Slopes",
+      "Site_Id": "1650",
+      "SiteName": "WAGGA WAGGA NORTH",
+      "AvailableVariables": "HUMID, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Southern Tablelands",
+      "Site_Id": "1580",
+      "SiteName": "GOULBURN",
+      "AvailableVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney East",
+      "Site_Id": "15",
+      "SiteName": "ALEXANDRIA",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, TEMP, WDR, WSP",
+      "StartDateTime": "2021-10-05 16:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-10-05 16:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney East",
+      "Site_Id": "1001",
+      "SiteName": "COOK AND PHILLIP",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney East",
+      "Site_Id": "206",
+      "SiteName": "EARLWOOD",
+      "AvailableVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney East",
+      "Site_Id": "1141",
+      "SiteName": "LIDCOMBE",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, SOLAR, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney East",
+      "Site_Id": "113",
+      "SiteName": "MACQUARIE PARK",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, SOLAR, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney East",
+      "Site_Id": "33",
+      "SiteName": "RANDWICK",
+      "AvailableVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney East",
+      "Site_Id": "39",
+      "SiteName": "ROZELLE",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, SOLAR, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney East",
+      "Site_Id": "1007",
+      "SiteName": "ULTIMO-UTS",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, TEMP, WDR, WSP",
+      "StartDateTime": "2025-04-07 14:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2025-04-07 14:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney North-west",
+      "Site_Id": "919",
+      "SiteName": "PARRAMATTA NORTH",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney North-west",
+      "Site_Id": "1750",
+      "SiteName": "PENRITH",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney North-west",
+      "Site_Id": "1148",
+      "SiteName": "PROSPECT",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, SOLAR, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney North-west",
+      "Site_Id": "573",
+      "SiteName": "RICHMOND",
+      "AvailableVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney North-west",
+      "Site_Id": "155",
+      "SiteName": "ROUSE HILL",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney North-west",
+      "Site_Id": "760",
+      "SiteName": "ST MARYS",
+      "AvailableVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney South-west",
+      "Site_Id": "574",
+      "SiteName": "BARGO",
+      "AvailableVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2025-07-03 09:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2025-07-03 09:00"
+    },
+    {
+      "Region": "Sydney South-west",
+      "Site_Id": "171",
+      "SiteName": "BRINGELLY",
+      "AvailableVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, SOLAR, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney South-west",
+      "Site_Id": "2570",
+      "SiteName": "CAMDEN",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney South-west",
+      "Site_Id": "2560",
+      "SiteName": "CAMPBELLTOWN WEST",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney South-west",
+      "Site_Id": "107",
+      "SiteName": "LIVERPOOL",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Sydney South-west",
+      "Site_Id": "1570",
+      "SiteName": "OAKDALE",
+      "AvailableVariables": "HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, SOLAR, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Upper Hunter",
+      "Site_Id": "336",
+      "SiteName": "ABERDEEN",
+      "AvailableVariables": "HUMID, PM10, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Upper Hunter",
+      "Site_Id": "4330",
+      "SiteName": "BULGA",
+      "AvailableVariables": "HUMID, PM10, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Upper Hunter",
+      "Site_Id": "2330",
+      "SiteName": "CAMBERWELL",
+      "AvailableVariables": "HUMID, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Upper Hunter",
+      "Site_Id": "7330",
+      "SiteName": "JERRYS PLAINS",
+      "AvailableVariables": "HUMID, PM10, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Upper Hunter",
+      "Site_Id": "3330",
+      "SiteName": "MAISON DIEU",
+      "AvailableVariables": "HUMID, PM10, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Upper Hunter",
+      "Site_Id": "329",
+      "SiteName": "MERRIWA",
+      "AvailableVariables": "CO, HUMID, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, SOLAR, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Upper Hunter",
+      "Site_Id": "5330",
+      "SiteName": "MOUNT THORLEY",
+      "AvailableVariables": "HUMID, PM10, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Upper Hunter",
+      "Site_Id": "333",
+      "SiteName": "MUSWELLBROOK",
+      "AvailableVariables": "CO, HUMID, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Upper Hunter",
+      "Site_Id": "1333",
+      "SiteName": "MUSWELLBROOK NW",
+      "AvailableVariables": "HUMID, PM10, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Upper Hunter",
+      "Site_Id": "330",
+      "SiteName": "SINGLETON",
+      "AvailableVariables": "HUMID, NO, NO2, NOX, OZONE, PM10, PM2.5, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Upper Hunter",
+      "Site_Id": "1330",
+      "SiteName": "SINGLETON NW",
+      "AvailableVariables": "HUMID, PM10, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Upper Hunter",
+      "Site_Id": "6330",
+      "SiteName": "SINGLETON SOUTH",
+      "AvailableVariables": "HUMID, PM10, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Upper Hunter",
+      "Site_Id": "8330",
+      "SiteName": "WARKWORTH",
+      "AvailableVariables": "HUMID, PM10, RAIN, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": "Upper Hunter",
+      "Site_Id": "2333",
+      "SiteName": "WYBONG",
+      "AvailableVariables": "HUMID, PM10, TEMP, WDR, WSP",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    },
+    {
+      "Region": null,
+      "Site_Id": "2141",
+      "SiteName": null,
+      "AvailableVariables": "CO, NEPH, NO, NO2, NOX, OZONE, PM10, PM2.5",
+      "StartDateTime": "2021-01-01 01:00:00",
+      "EndDateTime": "2026-05-01 15:00:00",
+      "TimeRange": "2021-01-01 01:00 to 2026-05-01 15:00"
+    }
+  ]
+}

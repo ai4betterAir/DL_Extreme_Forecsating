@@ -1,0 +1,54 @@
+## Unsolved problem: multirun is not workable yet!!!
+
+### "defaults" is the keywords to define config groups in Hydra!!
+### Note: defaults takes a list as input, so you need to start every name with a -.
+
+defaults:    ### In our main config file, we need "defaults" keyword to distinguish normal string values from config group values
+
+- models: config_CNN_LSTM    ### CONFIG PARAMETERS IN THESE FILES WILL OVERWRITE THE CONFIG IN MAIN
+# - add_vars:                  ## add_vars: name of folder contain .yaml files Temperature.yamln_input 
+- _self_
+  - False
+
+use_file: 
+  #- True
+   - False
+
+n_inputs: 
+  - 24
+
+n_outputs:
+  - 24
+
+n_epoch:
+  #  - 30
+  # - 1
+  - 20
+
+batchsize:
+  - 256
+
+num_batches:
+  - 2
+
+n_iteration:
+  - 1
+
+prob_samples:
+  - 100
+
+#   - ["PM2.5"]
+
+additional_var_to_select:
+- ['T']
+  # - ['NO']
+  # - []
+
+evaluation_metrics:
+  - ["MAE", "RMSE", "MAPE", "PEARSON_R", "R_SQUARE", "MEAN_FC", "MEAN_OBS", "STD_FC", "STD_OBS", "MBE"]
+
+
+  # # - "CNN_LSTM_model_v1"
+# - "LSTM_BNN_model_v1"
+# - "CNN_LSTM_BNN_model_v1"
+# - "LSTM_BNN_single_station_v1"

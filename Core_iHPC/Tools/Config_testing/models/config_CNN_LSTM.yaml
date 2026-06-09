@@ -1,0 +1,2 @@
+forecast_method: 
+   - "CNN_LSTM_model_v1"
