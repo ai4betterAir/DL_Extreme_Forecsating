@@ -8,10 +8,10 @@ from Core_iHPC.Models.extreme_common import (
     BaseExtremeForecaster,
     config_value,
     focal_binary_crossentropy,
-    gpd_negative_log_likelihood,
     inverse_scale_3d,
     scale_thresholds,
 )
+from Core_iHPC.Models.extreme_distributions import gpd_negative_log_likelihood
 from Core_iHPC.Models.GraphWaveNet_Quantile_PM25 import AdaptiveGraphMix
 
 
