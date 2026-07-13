@@ -14,6 +14,11 @@ from sklearn.preprocessing import RobustScaler
 from tensorflow import keras
 from tensorflow.keras import callbacks
 
+from Core_iHPC.Models.extreme_distributions import (
+    gev_negative_log_likelihood,
+    gpd_negative_log_likelihood,
+)
+
 EPS = tf.keras.backend.epsilon()
 
 
@@ -64,29 +69,6 @@ def focal_binary_crossentropy(y_true, y_prob, gamma=2.0, alpha=0.25):
     pt = tf.where(tf.equal(y_true, 1.0), y_prob, 1.0 - y_prob)
     alpha_t = tf.where(tf.equal(y_true, 1.0), alpha, 1.0 - alpha)
     return -alpha_t * tf.pow(1.0 - pt, gamma) * tf.math.log(pt)
-
-
-def gpd_negative_log_likelihood(excess, xi, beta):
-    excess = tf.maximum(tf.cast(excess, beta.dtype), 0.0)
-    beta = tf.maximum(beta, tf.cast(1e-4, beta.dtype))
-    xi = tf.clip_by_value(xi, -0.45, 0.45)
-    near_zero = tf.abs(xi) < 1e-3
-    z = tf.maximum(1.0 + xi * excess / beta, tf.cast(1e-6, beta.dtype))
-    regular = tf.math.log(beta) + (1.0 / xi + 1.0) * tf.math.log(z)
-    exponential = tf.math.log(beta) + excess / beta
-    return tf.where(near_zero, exponential, regular)
-
-
-def gev_negative_log_likelihood(y, mu, sigma, xi):
-    y = tf.cast(y, mu.dtype)
-    sigma = tf.maximum(sigma, tf.cast(1e-4, sigma.dtype))
-    xi = tf.clip_by_value(xi, -0.45, 0.45)
-    z = (y - mu) / sigma
-    near_zero = tf.abs(xi) < 1e-3
-    t = tf.maximum(1.0 + xi * z, tf.cast(1e-6, mu.dtype))
-    regular = tf.math.log(sigma) + (1.0 + 1.0 / xi) * tf.math.log(t) + tf.pow(t, -1.0 / xi)
-    gumbel = tf.math.log(sigma) + z + tf.exp(-z)
-    return tf.where(near_zero, gumbel, regular)
 
 
 def inverse_scale_3d(scaler, values):
@@ -172,7 +154,8 @@ def chronological_windows(timestamps, raw, lookback, horizon, scaler, train_frac
     X_train, y_train, yr_train = section(0, train_end)
     X_val, y_val, yr_val = section(train_end, val_end)
     X_test, y_test, yr_test = section(val_end, n)
-    test_ts = timestamps[val_end:val_end + len(y_test)]
+    timestamp_offset = horizon - 1 if target_mode == "block_max" else 0
+    test_ts = timestamps[val_end + timestamp_offset:val_end + timestamp_offset + len(y_test)]
     return ChronologicalData(X_train, y_train, X_val, y_val, X_test, y_test,
                              yr_train, yr_val, yr_test, pd.DatetimeIndex(test_ts))
 
@@ -193,6 +176,7 @@ def compute_extreme_metrics(y_true, y_pred, thresholds):
     tp, fp, fn = np.sum(predicted & extreme), np.sum(predicted & ~extreme), np.sum(~predicted & extreme)
     precision = tp / (tp + fp) if tp + fp else np.nan
     recall = tp / (tp + fn) if tp + fn else np.nan
+    f1 = 2 * precision * recall / (precision + recall) if np.isfinite(precision + recall) and precision + recall else np.nan
     return {
         "RMSE": float(np.sqrt(np.mean(error ** 2))),
         "MAE": float(np.mean(np.abs(error))),
@@ -200,8 +184,19 @@ def compute_extreme_metrics(y_true, y_pred, thresholds):
         "TAIL_MAE": float(np.mean(np.abs(error[extreme]))) if np.any(extreme) else np.nan,
         "EVENT_PRECISION": float(precision),
         "EVENT_RECALL": float(recall),
-        "EVENT_F1": float(2 * precision * recall / (precision + recall)) if precision + recall else np.nan,
+        "EVENT_F1": float(f1),
     }
+
+
+def station_metrics_frame(y_true, y_pred, thresholds, station_names):
+    rows = []
+    for index, station in enumerate(station_names):
+        true_station = y_true[..., index]
+        pred_station = y_pred[..., index]
+        metrics = compute_extreme_metrics(true_station[..., None], pred_station[..., None], np.asarray([thresholds[index]]))
+        rows.append({"Stations": station, **metrics})
+    rows.append({"Stations": "ALL", **compute_extreme_metrics(y_true, y_pred, thresholds)})
+    return pd.DataFrame(rows)
 
 
 class BaseExtremeForecaster:
@@ -224,15 +219,20 @@ class BaseExtremeForecaster:
         self.val_fraction = float(config_value(Configuration, "val_fraction", 0.15))
         self.target = str((getattr(Configuration, "var_to_predict", None) or ["PM2.5"])[0])
         base = getattr(Configuration, "model_base_path", "AI_Runs/Model_weights")
-        name = str(getattr(Configuration, "model_name", None) or self.DEFAULT_MODEL_NAME)
+        configured_name = str(getattr(Configuration, "model_name", None) or "")
+        if not configured_name or (configured_name.lower().startswith("sparse_lstm") and not self.DEFAULT_MODEL_NAME.startswith("sparse_lstm")):
+            configured_name = self.DEFAULT_MODEL_NAME
         version = str(getattr(Configuration, "model_version", "v3.0"))
-        self.model_root = os.path.join(base, f"{name}_{version}")
+        self.model_root = os.path.join(base, f"{configured_name}_{version}")
         self.weights_path = os.path.join(self.model_root, "model.weights.h5")
         self.scaler_path = os.path.join(self.model_root, "scaler.pkl")
         self.metadata_path = os.path.join(self.model_root, "metadata.json")
+        self.metrics_path = os.path.join(self.model_root, "metrics.csv")
         self.scaler, self.model = RobustScaler(quantile_range=(5, 95)), None
         self.station_names: List[str] = []
         self.thresholds: Optional[np.ndarray] = None
+        self.latest_training_plot_data = None
+        self.latest_dashboard_metrics_pd = None
 
     def build_model(self, num_sites):
         raise NotImplementedError
@@ -262,14 +262,31 @@ class BaseExtremeForecaster:
         with open(self.metadata_path, "w", encoding="utf-8") as handle:
             json.dump({"model": self.MODEL_DISPLAY_NAME, "station_names": self.station_names,
                        "thresholds": self.thresholds.tolist(), "quantiles": list(self.quantiles)}, handle, indent=2)
+        if self.latest_dashboard_metrics_pd is not None:
+            self.latest_dashboard_metrics_pd.to_csv(self.metrics_path, index=False)
+
+    def _load_expected_stations(self, station_frames):
+        if not os.path.exists(self.metadata_path):
+            return station_frames
+        with open(self.metadata_path, "r", encoding="utf-8") as handle:
+            expected = json.load(handle).get("station_names") or []
+        missing = [station for station in expected if station not in station_frames]
+        if missing:
+            raise ValueError("Missing station(s) required by saved model: " + ", ".join(missing))
+        return {station: station_frames[station] for station in expected}
 
     def _load(self, num_sites):
+        for path in (self.weights_path, self.scaler_path, self.metadata_path):
+            if not os.path.exists(path):
+                raise FileNotFoundError(f"Required trained-model file not found: {path}")
         with open(self.scaler_path, "rb") as handle:
             self.scaler = pickle.load(handle)
         with open(self.metadata_path, "r", encoding="utf-8") as handle:
             metadata = json.load(handle)
         self.station_names = metadata["station_names"]
         self.thresholds = np.asarray(metadata["thresholds"], float)
+        if os.path.exists(self.metrics_path):
+            self.latest_dashboard_metrics_pd = pd.read_csv(self.metrics_path)
         self.model = self.build_model(num_sites)
         self.compile_model()
         self.model.load_weights(self.weights_path)
@@ -289,9 +306,11 @@ class BaseExtremeForecaster:
         return outputs
 
     def run_all(self, station_decomposed_dict, n_retrain=0):
-        timestamps, self.station_names, raw = extract_station_matrix(station_decomposed_dict, self.target)
+        train_model = as_bool(getattr(self.Configuration, "train_model", True), True)
+        station_frames = station_decomposed_dict if train_model else self._load_expected_stations(station_decomposed_dict)
+        timestamps, self.station_names, raw = extract_station_matrix(station_frames, self.target)
         num_sites = len(self.station_names)
-        if as_bool(getattr(self.Configuration, "train_model", True), True):
+        if train_model:
             data = chronological_windows(timestamps, raw, self.lookback, self.horizon, self.scaler,
                                          self.train_fraction, self.val_fraction, self.TARGET_MODE)
             train_end = int(len(raw) * self.train_fraction)
@@ -304,15 +323,20 @@ class BaseExtremeForecaster:
                                      sample_weight=weights, epochs=self.n_epochs, batch_size=self.batch_size,
                                      callbacks=self._callbacks(), verbose=1)
             prediction = self.decode_model_output(self.model.predict(data.X_test, verbose=0))
-            metrics = compute_extreme_metrics(data.y_test_raw, prediction, self.thresholds)
-            if as_bool(getattr(self.Configuration, "save_model", True), True):
-                self._save()
+            self.latest_dashboard_metrics_pd = station_metrics_frame(
+                data.y_test_raw, prediction, self.thresholds, self.station_names
+            )
             plot = {"station_names": self.station_names, "timestamps": data.test_timestamps,
                     "predictions": {s: prediction[:, 0, i] if prediction.ndim == 3 else prediction[:, i]
                                     for i, s in enumerate(self.station_names)},
                     "actuals": {s: data.y_test_raw[:, 0, i] if data.y_test_raw.ndim == 3 else data.y_test_raw[:, i]
                                 for i, s in enumerate(self.station_names)}}
-            return None, {"history": history.history, "metrics": metrics, "training_plot_data": plot}
+            self.latest_training_plot_data = plot
+            if as_bool(getattr(self.Configuration, "save_model", True), True):
+                self._save()
+            return None, {"history": history.history,
+                          "metrics": self.latest_dashboard_metrics_pd.to_dict(orient="records"),
+                          "training_plot_data": plot}
         self._load(num_sites)
         X = self.scaler.transform(raw).astype(np.float32)[-self.lookback:][None, ...]
         prediction = self.decode_model_output(self.model.predict(X, verbose=0))
