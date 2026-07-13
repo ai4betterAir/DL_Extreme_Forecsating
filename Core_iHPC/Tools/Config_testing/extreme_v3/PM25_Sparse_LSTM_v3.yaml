@@ -1,0 +1,43 @@
+# Stage 1: corrected Sparse LSTM v3
+config_file: "config.py"
+var_to_predict: ["PM2.5"]
+selected_region: "SySW"
+forecast_method: "Sparse_LSTM_v3"
+train_model: true
+save_model: true
+use_file: false
+impute: true
+decompose: false
+
+additional_var_to_select: ["PM2.5", "PM10", "O3", "TEMP", "HUMID", "WSP", "WDR"]
+internal_var_to_add: ["hour", "month", "day_of_week"]
+
+model_parameters:
+  n_inputs: 72
+  n_outputs: 24
+  extreme_quantiles: [0.50, 0.75, 0.90, 0.95, 0.99]
+  extreme_percentile: 0.95
+  extreme_weight: 4.0
+  train_fraction: 0.70
+  val_fraction: 0.15
+  learning_rate: 0.001
+  sparse_lstm_num_heads: 4
+  sparse_lstm_window_size: 24
+  sparse_lstm_ff_dim: 256
+  sparse_lstm_units: 128
+  sparse_lstm_cnn_filters: 64
+  sparse_lstm_cnn_kernel_size: 3
+  sparse_lstm_dropout: 0.15
+
+run_parameters:
+  n_epoch: 150
+  batchsize: 32
+  num_batches: 10
+
+IMPUTATION_METHOD: "AQUISTIL"
+save_imputed_data: true
+model_base_path: "AI_Runs/Model_weights/Extreme_v3/Sparse_LSTM_v3"
+model_version: "v3.0"
+strict_version_check: true
+prob_samples: 100
+evaluation_metrics: ["MAE", "RMSE", "R2", "Pearson", "IOA"]
