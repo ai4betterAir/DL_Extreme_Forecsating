@@ -5,7 +5,8 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 
-from Core_iHPC.Models.extreme_common import BaseExtremeForecaster, config_value, gev_negative_log_likelihood
+from Core_iHPC.Models.extreme_common import BaseExtremeForecaster, config_value
+from Core_iHPC.Models.extreme_distributions import gev_negative_log_likelihood
 
 
 @keras.utils.register_keras_serializable(package="extreme_pm25")
